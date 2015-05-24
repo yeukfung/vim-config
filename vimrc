@@ -28,10 +28,8 @@ let g:indexer_debugLogLevel = 2
 " Get Vundle up and running
 set nocompatible
 filetype off 
-set runtimepath+=~/.vim/bundle/Vundle.vim,~/.vim/bundle/vim-jira,~/.vim/bundle/vim-mpc
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" OMG This makes editing soooooo sllloooooowwwwww
-" Plugin 'bling/vim-airline'
 Plugin 'rking/ag.vim'
 Plugin 'bufkill.vim'
 Plugin 'MarcWeber/vim-addon-completion'
@@ -66,9 +64,9 @@ call vundle#end()
 filetype plugin indent on
 
 " Add xptemplate global personal directory value
-if has("unix")
+"if has("mac")
   set runtimepath+=~/.vim/xpt-personal
-endif
+"endif
 
 " Set filetype stuff to on
 filetype on
