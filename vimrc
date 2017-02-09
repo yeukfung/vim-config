@@ -30,6 +30,8 @@ set nocompatible
 filetype off 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+Plugin 'vimwiki/vimwiki'
+Plugin 'vim-scripts/EasyGrep'
 Plugin 'rking/ag.vim'
 Plugin 'bufkill.vim'
 Plugin 'MarcWeber/vim-addon-completion'
@@ -60,6 +62,7 @@ Plugin 'VisIncr'
 Plugin 'drmingdrmer/xptemplate'
 Plugin 'GEverding/vim-hocon'
 Plugin 'xolox/vim-misc'
+Plugin 'leafgarland/typescript-vim'
 call vundle#end()
 filetype plugin indent on
 
@@ -274,8 +277,8 @@ map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
 
 " set text wrapping toggles
-nmap <silent> ,ww :set invwrap<cr>
-nmap <silent> ,wW :windo set invwrap<cr>
+" nmap <silent> ,ww :set invwrap<cr>
+" nmap <silent> ,wW :windo set invwrap<cr>
 
 " allow command line editing like emacs
 cnoremap <C-A>      <Home>
@@ -550,8 +553,8 @@ let g:ctrlp_root_markers = ['.project.root']
 let g:ctrlp_custom_ignore = '\v'
 let g:ctrlp_custom_ignore .= '%(/\.'
 let g:ctrlp_custom_ignore .= '%(git|hg|svn)|'
-let g:ctrlp_custom_ignore .= '\.%(class|o|png|jpg|jpeg|bmp|tar|jar|tgz|deb|zip|xml|html)$|'
-let g:ctrlp_custom_ignore .= '/target/%(quickfix|resolution-cache|streams)|'
+let g:ctrlp_custom_ignore .= '\.%(class|o|png|jpg|jpeg|bmp|tar|jar|tgz|deb|zip)$|'
+let g:ctrlp_custom_ignore .= '/target/%(quickfix|resolution-cache|streams|scala)|'
 let g:ctrlp_custom_ignore .= '/target/scala-2.1./%(classes|test-classes|sbt-0.13|cache)|'
 let g:ctrlp_custom_ignore .= '/project/target|/project/project'
 let g:ctrlp_custom_ignore .= ')'
@@ -935,7 +938,7 @@ if has("gui_running")
   if !exists("g:vimrcloaded")
     winpos 0 0
     if !&diff
-      winsize 130 120
+      winsize 153 120
     else
       winsize 227 120
     endif
@@ -943,3 +946,10 @@ if has("gui_running")
   endif
 endif
 :nohls
+
+
+"-----------------------------------------------------------------------------
+" vimwiki
+"-----------------------------------------------------------------------------
+let g:vimwiki_list = [{'path':'~/Google Drive/vim/vimwiki/'}]
+let g:ctrlp_working_path_mode = 0
